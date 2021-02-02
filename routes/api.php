@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectAssignmentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,3 +25,13 @@ Route::get('projects/{id}', [ProjectController::class, 'show']);
 Route::post('projects/create', [ProjectController::class, 'store']);
 Route::put('projects/update/{id}', [ProjectController::class, 'update']);
 Route::delete('projects/delete/{id}', [ProjectController::class, 'delete']);
+
+
+// Route::get('projects', [ProjectController::class, 'index']);
+// Route::get('projects/{id}', [ProjectController::class, 'show']);
+// Route::post('projects/create', [ProjectController::class, 'store']);
+// Route::put('projects/update/{id}', [ProjectController::class, 'update']);
+// Route::delete('projects/delete/{id}', [ProjectController::class, 'delete']);
+
+Route::get('projects_assignment', [ProjectAssignmentController::class, 'getAllAssigned']);
+Route::post('projects_assignment/create', [ProjectAssignmentController::class, 'assignProject']);
