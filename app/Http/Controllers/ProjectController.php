@@ -10,6 +10,7 @@ class ProjectController extends Controller
     public function index()
     {
         return Project::all();
+        // return Project::onlyTrashed()->get();
         // return response()->json('Success HAHAHAHA');
     }
     public function show($id)
@@ -57,10 +58,14 @@ class ProjectController extends Controller
         // return response()->json($project, 200);
         return response()->json(['project' => $project,'message' => 'Success HAHAHAHA']);
     }
-    public function delete(Project $project)
+    public function delete($id)
     {
-        $project->delete();
-
-        return response()->json(null, 204);
+            
+            // return response()->json(null, 204);
+            $project = Project::findorfail($id);
+            if($project->delete()) {
+                return response()->json(['message' => 'Deleted HAHAHAHA']);
+            }
+               
     }
 }
