@@ -21,6 +21,7 @@ class CreateProjectAssignmentsTable extends Migration
             $table->unsignedBigInteger('user_id'); //User that is assigned to a project
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); //Assigning foreign key
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -27,6 +27,7 @@ class CreateIssuesTable extends Migration
             $table->foreign('assign_id')->references('id')->on('project_assignments')->onDelete('cascade'); 
             //Issue is Issued by this user
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

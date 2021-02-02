@@ -21,6 +21,7 @@ class CreateProjectsTable extends Migration
             $table->string('status'); //Status (Finished, On going, Cancelled)
             $table->dateTime('due_at'); //Due date of the project
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
